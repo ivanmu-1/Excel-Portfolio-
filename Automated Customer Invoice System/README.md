@@ -1,95 +1,68 @@
-Automated Customer Invoice System (Excel + VBA Macros)
+# Automated Customer Invoice System (Excel + VBA Macros)
 
-Overview
+## Overview
+This project is an **Automated Customer Invoice System** built in **Microsoft Excel** using **VBA Macros**. It simplifies the process of creating, saving, and managing invoices with just a click of a button. The system automates multiple tasks, including:
 
-This project is an Automated Customer Invoice System built in Microsoft Excel using VBA Macros. It simplifies the process of creating, saving, and managing invoices with just a click of a button. The system automates multiple tasks, including:
+- **Generating new invoices**
+- **Recording invoices** in a dedicated sheet
+- **Saving invoices** as an Excel file
+- **Exporting invoices** as a PDF
+- **Sending invoices via email** as a PDF attachment
 
-Generating new invoices
+## Features
+### **1. Automated Invoice Creation**
+- A button generates a **new invoice** with an automatically assigned invoice number.
+- Pulls customer details from a dedicated sheet when selecting a customer.
 
-Recording invoices in a dedicated sheet
+### **2. Record and Save Invoices**
+- The system allows users to **record invoices** into a log sheet, keeping a history of all generated invoices.
+- Users can **save invoices** as Excel files for future reference.
 
-Saving invoices as an Excel file
+### **3. Export as PDF**
+- Invoices can be exported and saved as **PDF files** with a single click.
+- PDFs are named systematically using the invoice number and customer name.
 
-Exporting invoices as a PDF
+### **4. Email Invoice as PDF**
+- Uses **VBA Macros** to automatically attach the generated PDF to an email.
+- Opens an email draft in **Outlook** with the invoice attached and a predefined subject & message.
 
-Sending invoices via email as a PDF attachment
+### **5. Customer and Invoice Records**
+- A **Customer Details Sheet** stores all customer information (e.g., Name, Contact, Email, Address, etc.).
+- An **Invoice Record Sheet** logs all issued invoices, including amounts, dates, and customer details.
 
-Features
+## How It Works
+1. **Open the Excel file** containing the automated invoice system.
+2. **Use the buttons** to perform actions:
+   - **"New Invoice"** → Generates a blank invoice with a unique number.
+   - **"Record Invoice"** → Saves the invoice data in the record sheet.
+   - **"Save as Excel"** → Saves the invoice as a standalone Excel file.
+   - **"Save as PDF"** → Converts the invoice into a PDF file.
+   - **"Email as PDF"** → Automatically attaches the PDF to an Outlook email.
+3. **Customer data is auto-filled** from the customer details sheet when selecting a customer.
+4. **Review the Invoice Record Sheet** for past invoices and customer transactions.
 
-1. Automated Invoice Creation
+## Technologies Used
+- **Microsoft Excel** for data management and interface.
+- **VBA (Visual Basic for Applications)** for automation and macros.
+- **Outlook Integration** for email functionality.
 
-A button generates a new invoice with an automatically assigned invoice number.
+## Setup Instructions
+1. **Enable Macros** in Excel:
+   - Go to **File > Options > Trust Center > Trust Center Settings**.
+   - Select **Macro Settings** and enable macros.
+2. **Ensure Outlook is Installed & Configured** if using the email feature.
+3. **Modify the VBA Code** (if necessary) to adjust email templates or file-saving paths.
 
-Pulls customer details from a dedicated sheet when selecting a customer.
+## Future Enhancements
+- Add a **search and filter function** to quickly retrieve past invoices.
+- Implement a **database connection** for better data storage and retrieval.
+- Enhance the **UI with forms** for easier customer and invoice entry.
 
-2. Record and Save Invoices
+## Author
+[Your Name]  
+[Your Contact Information]  
+[Your LinkedIn/Portfolio (if applicable)]
 
-The system allows users to record invoices into a log sheet, keeping a history of all generated invoices.
+## License
+This project is for personal and business use. Modifications are allowed based on your needs.
 
-Users can save invoices as Excel files for future reference.
-
-3. Export as PDF
-
-Invoices can be exported and saved as PDF files with a single click.
-
-PDFs are named systematically using the invoice number and customer name.
-
-4. Email Invoice as PDF
-
-Uses VBA Macros to automatically attach the generated PDF to an email.
-
-Opens an email draft in Outlook with the invoice attached and a predefined subject & message.
-
-5. Customer and Invoice Records
-
-A Customer Details Sheet stores all customer information (e.g., Name, Contact, Email, Address, etc.).
-
-An Invoice Record Sheet logs all issued invoices, including amounts, dates, and customer details.
-
-How It Works
-
-Open the Excel file containing the automated invoice system.
-
-Use the buttons to perform actions:
-
-"New Invoice" → Generates a blank invoice with a unique number.
-
-"Record Invoice" → Saves the invoice data in the record sheet.
-
-"Save as Excel" → Saves the invoice as a standalone Excel file.
-
-"Save as PDF" → Converts the invoice into a PDF file.
-
-"Email as PDF" → Automatically attaches the PDF to an Outlook email.
-
-Customer data is auto-filled from the customer details sheet when selecting a customer.
-
-Review the Invoice Record Sheet for past invoices and customer transactions.
-
-Technologies Used
-
-Microsoft Excel for data management and interface.
-
-VBA (Visual Basic for Applications) for automation and macros.
-
-Outlook Integration for email functionality.
-
-Setup Instructions
-
-Enable Macros in Excel:
-
-Go to File > Options > Trust Center > Trust Center Settings.
-
-Select Macro Settings and enable macros.
-
-Ensure Outlook is Installed & Configured if using the email feature.
-
-Modify the VBA Code (if necessary) to adjust email templates or file-saving paths.
-
-Future Enhancements
-
-Add a search and filter function to quickly retrieve past invoices.
-
-Implement a database connection for better data storage and retrieval.
-
-Enhance the UI with forms for easier customer and invoice entry.
