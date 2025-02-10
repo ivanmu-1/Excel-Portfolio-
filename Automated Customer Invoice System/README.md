@@ -53,16 +53,6 @@ This project is an **Automated Customer Invoice System** built in **Microsoft Ex
 2. **Ensure Outlook is Installed & Configured** if using the email feature.
 3. **Modify the VBA Code** (if necessary) to adjust email templates or file-saving paths.
 
-## Future Enhancements
-- Add a **search and filter function** to quickly retrieve past invoices.
-- Implement a **database connection** for better data storage and retrieval.
-- Enhance the **UI with forms** for easier customer and invoice entry.
 
-## Author
-[Your Name]  
-[Your Contact Information]  
-[Your LinkedIn/Portfolio (if applicable)]
 
-## License
-This project is for personal and business use. Modifications are allowed based on your needs.
 
