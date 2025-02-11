@@ -40,11 +40,47 @@ This document outlines the steps taken to build the Excel-based invoice manageme
 
 ---
 
-## Step 2: Implementing VBA Macros for Automation
+## Step 3: Implementing VBA Macros for Automation
 
-### 2.1 Automated Invoice Creation
+### 3.1 Automated Invoice Creation
 * Created a button to generate a new invoice with an automatically assigned invoice number.
+* Clear Previous Invoice Details in order to 
 * Integrated logic to pull customer details from the **Customer Detail Sheet** when selecting a customer.
+
+**VBA Code:**
+```vba
+' Sub CreateNewInvoice()
+
+    ' Declare a variable "invno" to store the current invoice number as a long integer
+    Dim invno As Long
+
+    ' Assign the value from cell C3 in Sheet1 to the variable "invno"
+    invno = Sheet1.Range("C3")
+
+    ' Clear the contents of the specified ranges: C4:D4, B10, and B19:G32
+    ' This is likely to reset parts of the invoice for new data
+    Range("C4:D4,B10,B19:G32").ClearContents
+
+    ' Show a message box to inform the user of the next invoice number (current invoice number + 1)
+    MsgBox "Your next invoice number is " & invno + 1
+
+    ' Update cell C3 with the next invoice number (current invoice number + 1)
+    Range("C3") = invno + 1
+
+    ' Move the selection to cell B10, likely for the user to input the next set of data
+    Range("B10").Select
+
+    ' Save the workbook after making changes
+    ThisWorkbook.Save
+
+End Sub
+
+
+```
+
+### 3.2 Recording and Saving Invoices
+* Developed a macro to record invoices into the **Invoice Record Sheet**, keeping a log of all generated invoices.
+* Enabled users to save invoices as Excel files for future reference.
 
 **VBA Code:**
 ```vba
@@ -77,19 +113,75 @@ This document outlines the steps taken to build the Excel-based invoice manageme
     nextrec.Offset(0, 4) = dt_issue + term  ' Store Due Date (Issue Date + Payment Terms) in column E
 
 End Sub
-
 ```
 
-### 2.2 Recording and Saving Invoices
-* Developed a macro to record invoices into the **Invoice Record Sheet**, keeping a log of all generated invoices.
-* Enabled users to save invoices as Excel files for future reference.
+### 3.4 Exporting Invoice as Excel
+* Implemented a VBA macro to export invoices as Excels with a single click.
+* Systematically named the PDF using the **invoice number** and **customer's name**.
 
 **VBA Code:**
 ```vba
-' Code will be added here
+' Sub CreateInvoice()
+
+    ' Declare variables for invoice details
+    Dim invno As Long
+    Dim custname As String
+    Dim amt As Currency
+    Dim dt_issue As Date
+    Dim term As Byte
+    Dim path As String
+    Dim fname As String
+    Dim nextrec As Range
+
+    ' Assign values from the worksheet to the variables
+    invno = Range("C3")              ' Invoice number from cell C3
+    custname = Range("B10")          ' Customer name from cell B10
+    amt = Range("H38")               ' Amount from cell H38
+    dt_issue = Range("C5")           ' Date of issue from cell C5
+    term = Range("C6")               ' Terms (e.g., payment terms) from cell C6
+    path = "C:\Users\Ivan\Desktop\Invoice\"  ' Folder path to save the invoice
+    fname = invno & " - " & custname   ' Filename combining invoice number and customer name
+
+    ' Copy the invoice template (Sheet1) to a new workbook
+    Sheet1.Copy
+
+    ' Delete all shapes (buttons, images, etc.) on the copied sheet
+    Dim Shpe As Shape
+    For Each Shpe In ActiveSheet.Shapes
+        Shpe.Delete   ' Delete any shape (button, picture, etc.)
+    Next Shpe
+
+    ' Delete all non-picture shapes from the copied sheet
+    For Each Shpe In ActiveSheet.Shapes
+        If Shpe.Type <> msoPicture Then Shpe.Delete  ' Only delete non-picture shapes (like buttons)
+    Next Shpe
+
+    ' Save the newly copied workbook (without shapes) as a new invoice
+    With ActiveWorkbook
+        .Sheets(1).Name = "Invoice"  ' Name the first sheet as "Invoice"
+        .SaveAs Filename:=path & fname, FileFormat:=51  ' Save as an Excel file (.xlsx)
+        .Close  ' Close the new workbook after saving
+    End With
+
+    ' Input the details of the invoice into the "Invoices" record sheet (Sheet2)
+    Set nextrec = Sheet2.Range("A1048576").End(xlUp).Offset(1, 0)  ' Find the next available row in Sheet2
+
+    ' Input invoice details into the new row in Sheet2
+    nextrec = invno  ' Place the invoice number in column A
+    nextrec.Offset(0, 1) = custname  ' Place the customer name in column B
+    nextrec.Offset(0, 2) = amt  ' Place the amount in column C
+    nextrec.Offset(0, 3) = dt_issue  ' Place the issue date in column D
+    nextrec.Offset(0, 4) = dt_issue + term  ' Place the due date (issue date + terms) in column E
+
+    ' Add a hyperlink to the new invoice file in column H of the same row
+    Sheet2.Hyperlinks.Add anchor:=nextrec.Offset(0, 7), Address:=path & fname & ".xlsx"  ' Link to the saved invoice file
+
+End Sub
+
 ```
 
-### 2.3 Exporting Invoice as PDF
+
+### 3.4 Exporting Invoice as PDF
 * Implemented a VBA macro to export invoices as PDFs with a single click.
 * Systematically named the PDF using the **invoice number** and **customer's name**.
 
@@ -98,7 +190,7 @@ End Sub
 ' Code will be added here
 ```
 
-### 2.4 Email Invoice as PDF
+### 3.5 Email Invoice as PDF
 * Used VBA macros to automatically attach the generated PDF to an email.
 * Configured Outlook to open a new email draft with the invoice attached.
 * Included a predefined subject and message for consistency.
@@ -110,10 +202,7 @@ End Sub
 
 ---
 
-## Next Steps
-* Add error handling to VBA macros for robustness.
-* Improve user interface for better usability.
-* Expand functionalities based on feedback.
+
 
 ---
 
