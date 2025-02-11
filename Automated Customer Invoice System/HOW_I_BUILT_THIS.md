@@ -188,7 +188,7 @@ End Sub
 **VBA Code:**
 ```vba
 
- ' Same as Excel Code instead we change FixedFormat = PDF
+ ' Same as Excel Code instead we add extra line of code and modify Excel code by adding an extra line and adjusting the offset from (0,7) to (0,6) to accommodate the different cell categories in the invoice records
 Sub SaveasPDF()
 
 Dim invno As Long
@@ -209,6 +209,7 @@ term = Range("C6")
 path = "C:\Users\Ivan\Desktop\Invoice\"
 fname = invno & " - " & custname
 
+' Export the active sheet as a PDF, respecting print areas, and save it to the specified path with the generated filename.
 ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, ignoreprintareas:=False, Filename:=path & fname
 
 Set nextrec = Sheet2.Range("A1048576").End(xlUp).Offset(1, 0)
@@ -219,7 +220,7 @@ nextrec.Offset(0, 2) = amt
 nextrec.Offset(0, 3) = dt_issue
 nextrec.Offset(0, 4) = dt_issue + term
 
-' Add a hyperlink to the new invoice file in column H of the same row
+ ' Export the active sheet as a PDF to the specified path
 Sheet2.Hyperlinks.Add anchor:=nextrec.Offset(0, 6), Address:=path & fname & ".pdf."
 
 End Sub
@@ -232,7 +233,63 @@ End Sub
 
 **VBA Code:**
 ```vba
-' Code will be added here
+Sub EmailasPDF()
+
+    ' Create an Outlook application object
+    Dim EApp As Object
+    Set EApp = CreateObject("Outlook.Application")
+
+    ' Create a new email item within Outlook
+    Dim EItem As Object
+    Set EItem = EApp.CreateItem(0)  ' 0 corresponds to an email item
+
+    ' Declare variables for invoice details
+    Dim invno As Long
+    Dim custname As String
+    Dim amt As Currency
+    Dim dt_issue As Date
+    Dim term As Byte
+    Dim path As String
+    Dim fname As String
+    Dim nextrec As Range
+
+    ' Assign values from the worksheet to the variables
+    invno = Range("C3")              ' Invoice number from cell C3
+    custname = Range("B10")          ' Customer name from cell B10
+    amt = Range("H38")               ' Amount from cell H38
+    dt_issue = Range("C5")           ' Date of issue from cell C5
+    term = Range("C6")               ' Terms (e.g., payment terms) from cell C6
+    path = "C:\Users\Ivan\Desktop\Invoice\"  ' Folder path to save the invoice
+    fname = invno & " - " & custname   ' Filename combining invoice number and customer name
+
+    ' Export the active sheet as a PDF to the specified path
+    ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, ignoreprintareas:=False, Filename:=path & fname
+
+    ' Find the next available row in Sheet2 to record invoice details
+    Set nextrec = Sheet2.Range("A1048576").End(xlUp).Offset(1, 0)
+
+    ' Record invoice details in the next available row of Sheet2
+    nextrec = invno  ' Place the invoice number in column A
+    nextrec.Offset(0, 1) = custname  ' Place the customer name in column B
+    nextrec.Offset(0, 2) = amt  ' Place the amount in column C
+    nextrec.Offset(0, 3) = dt_issue  ' Place the issue date in column D
+    nextrec.Offset(0, 4) = dt_issue + term  ' Place the due date (issue date + terms) in column E
+    nextrec.Offset(0, 8) = Now  ' Record the current date and time in column I
+
+    ' Add a hyperlink to the saved PDF invoice file in column G of the same row
+    Sheet2.Hyperlinks.Add anchor:=nextrec.Offset(0, 6), Address:=path & fname & ".pdf."
+
+    ' Prepare and send the email with the PDF attachment
+    With EItem
+        .To = Range("B16")  ' The recipient's email address from cell B16
+        .Subject = "Invoice no: " & invno  ' Subject line includes the invoice number
+        .Body = "Please find invoice attached."  ' Email body message
+        .Attachments.Add (path & fname & ".pdf")  ' Attach the PDF invoice
+        .Display  ' Display the email to the user (ready for manual sending)
+    End With
+
+End Sub
+
 ```
 
 ---
@@ -241,5 +298,4 @@ End Sub
 
 ---
 
-This document serves as a guide to understanding how the project was structured and automated. The blank sections will be filled with VBA code as the project evolves.
 
