@@ -49,7 +49,7 @@ This document outlines the steps taken to build the Excel-based invoice manageme
 
 **VBA Code:**
 ```vba
-' Sub CreateNewInvoice()
+Sub CreateNewInvoice()
 
     ' Declare a variable "invno" to store the current invoice number as a long integer
     Dim invno As Long
@@ -84,7 +84,7 @@ End Sub
 
 **VBA Code:**
 ```vba
-' Sub RecordofInVoice()
+Sub RecordofInVoice()
 
     ' Declare variables to store invoice details
     Dim invno As Integer       ' Stores the invoice number
@@ -121,7 +121,7 @@ End Sub
 
 **VBA Code:**
 ```vba
-' Sub CreateInvoice()
+Sub SaveInvAsExcel()
 
     ' Declare variables for invoice details
     Dim invno As Long
@@ -187,7 +187,42 @@ End Sub
 
 **VBA Code:**
 ```vba
-' Code will be added here
+
+ ' Same as Excel Code instead we change FixedFormat = PDF
+Sub SaveasPDF()
+
+Dim invno As Long
+Dim custname As String
+Dim amt As Currency
+Dim dt_issue As Date
+Dim term As Byte
+Dim path As String
+Dim fname As String
+Dim nextrec As Range
+
+
+invno = Range("C3")
+custname = Range("B10")
+amt = Range("H38")
+dt_issue = Range("C5")
+term = Range("C6")
+path = "C:\Users\Ivan\Desktop\Invoice\"
+fname = invno & " - " & custname
+
+ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, ignoreprintareas:=False, Filename:=path & fname
+
+Set nextrec = Sheet2.Range("A1048576").End(xlUp).Offset(1, 0)
+
+nextrec = invno
+nextrec.Offset(0, 1) = custname
+nextrec.Offset(0, 2) = amt
+nextrec.Offset(0, 3) = dt_issue
+nextrec.Offset(0, 4) = dt_issue + term
+
+' Add a hyperlink to the new invoice file in column H of the same row
+Sheet2.Hyperlinks.Add anchor:=nextrec.Offset(0, 6), Address:=path & fname & ".pdf."
+
+End Sub
 ```
 
 ### 3.5 Email Invoice as PDF
