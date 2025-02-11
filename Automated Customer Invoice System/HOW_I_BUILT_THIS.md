@@ -57,8 +57,8 @@ This document outlines the steps taken to build the Excel-based invoice manageme
 - This allows for immediate identification of overdue invoices, helping prioritize follow-ups with customers.
 
 ### 2.3 Tracking Payment Status
-- Added a **Status** column to monitor whether invoices are paid, overdue, or pending.
-- Set up manual or automatic updates to change the invoice status, depending on payment or due date.
+- Applied conditional formatting based on the **Paid** column:
+  - If "Yes" is selected in the **Paid** column, the row's color formatting resets to the default, indicating the invoice is paid.
 
 ### 2.4 Logging Invoice Email Details
 - Implemented a system to track when and to whom the invoice was emailed, including the date and time of sending.
@@ -317,8 +317,5 @@ End Sub
 
 ---
 
-
-
----
 
 
