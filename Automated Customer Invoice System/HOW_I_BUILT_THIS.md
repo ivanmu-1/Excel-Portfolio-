@@ -40,8 +40,29 @@ This document outlines the steps taken to build the Excel-based invoice manageme
 
 ---
 
-## Step 2: Setting Up Payment Tracker
+## Step 2: Implementing Invoice Tracking
 
+### 2.1 Creating the Tracker Sheet
+- Developed a dedicated tracker sheet to monitor issued invoices and their statuses.
+- The sheet includes the following columns:
+  - **Invoice Number**: Unique identifier for each invoice.
+  - **Customer Name**: Customer associated with the invoice.
+  - **Issue Date**: Date when the invoice was created.
+  - **Due Date**: Date by which payment is expected.
+  - **Status**: Current status of the invoice (e.g., "Paid", "Overdue", "Pending").
+
+### 2.2 Conditional Formatting for Overdue Invoices
+- Applied conditional formatting to highlight overdue invoices for prompt attention.
+- Used Excel’s `TODAY()` function to compare the **Due Date** with the current date. If the due date has passed and the invoice status is not "Paid", the cell is highlighted in a specified color (e.g., red) to indicate that the invoice is overdue.
+- This allows for immediate identification of overdue invoices, helping prioritize follow-ups with customers.
+
+### 2.3 Tracking Payment Status
+- Added a **Status** column to monitor whether invoices are paid, overdue, or pending.
+- Set up manual or automatic updates to change the invoice status, depending on payment or due date.
+
+### 2.4 Logging Invoice Email Details
+- Implemented a system to track when and to whom the invoice was emailed, including the date and time of sending.
+- This ensures a record is maintained of all communications related to the invoice.
 
 ---
 
