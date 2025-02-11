@@ -24,8 +24,8 @@ This document outlines the steps taken to build the Excel-based invoice manageme
 * Utilized Name Manager to define a structured list named Cust_list for data retrieval using VLookUp 
 
 ### 1.3 Automating the Invoice Section
-* Set up =VLOOKUP using the Cust_listto pull customer details into the invoice form when selecting a customer.
-* Implemented =IFNA Formula to hide unnecessary error message nad ensure cleaner data presentation.
+* Set up =VLOOKUP using the Cust_list list to pull customer details into the invoice form when selecting a customer.
+* Implemented =IFNA Formula to hide unnecessary error message and ensure cleaner data presentation.
 
 ### 1.4 Logging Issued Invoices
 * Created an **Invoice Record Sheet** to track:
@@ -40,12 +40,16 @@ This document outlines the steps taken to build the Excel-based invoice manageme
 
 ---
 
+## Step 2: Setting Up Payment Tracker
+
+
+---
+
 ## Step 3: Implementing VBA Macros for Automation
 
 ### 3.1 Automated Invoice Creation
 * Created a button to generate a new invoice with an automatically assigned invoice number.
-* Clear Previous Invoice Details in order to 
-* Integrated logic to pull customer details from the **Customer Detail Sheet** when selecting a customer.
+* Integrated logic to clear previous details and pull customer data when a customer is selected.
 
 **VBA Code:**
 ```vba
@@ -80,7 +84,6 @@ End Sub
 
 ### 3.2 Recording and Saving Invoices
 * Developed a macro to record invoices into the **Invoice Record Sheet**, keeping a log of all generated invoices.
-* Enabled users to save invoices as Excel files for future reference.
 
 **VBA Code:**
 ```vba
@@ -116,8 +119,9 @@ End Sub
 ```
 
 ### 3.4 Exporting Invoice as Excel
-* Implemented a VBA macro to export invoices as Excels with a single click.
-* Systematically named the PDF using the **invoice number** and **customer's name**.
+* Implemented a VBA macro to export invoices as Excel files with a single click, naming them systematically using invoice numbers and customer names.
+* Created a VBA macro to export invoices as xlsx's with systematic naming and saved them to a specified location.
+
 
 **VBA Code:**
 ```vba
@@ -181,9 +185,9 @@ End Sub
 ```
 
 
-### 3.4 Exporting Invoice as PDF
-* Implemented a VBA macro to export invoices as PDFs with a single click.
-* Systematically named the PDF using the **invoice number** and **customer's name**.
+### 3.5 Exporting Invoice as PDF
+* Implemented a VBA macro to export invoices as PDFs files with a single click, naming them systematically using invoice numbers and customer names.
+* Created a VBA macro to export invoices as PDFs with systematic naming and saved them to a specified location.
 
 **VBA Code:**
 ```vba
@@ -226,10 +230,8 @@ Sheet2.Hyperlinks.Add anchor:=nextrec.Offset(0, 6), Address:=path & fname & ".pd
 End Sub
 ```
 
-### 3.5 Email Invoice as PDF
-* Used VBA macros to automatically attach the generated PDF to an email.
-* Configured Outlook to open a new email draft with the invoice attached.
-* Included a predefined subject and message for consistency.
+### 3.6 Email Invoice as PDF
+* Used VBA macros to automatically attach the generated PDF to an email and configured Outlook to open a new email draft with predefined subject and message for consistency.
 
 **VBA Code:**
 ```vba
