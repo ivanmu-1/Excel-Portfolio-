@@ -20,9 +20,9 @@ This project is an **Automated Customer Invoice System** built in **Microsoft Ex
 - The system allows users to **record invoices** into a log sheet, keeping a history of all generated invoices.
 - Users can **save invoices** as Excel files for future reference.
 
-### **3. Export as PDF**
-- Invoices can be exported and saved as **PDF files** with a single click.
-- PDFs are named systematically using the invoice number and customer name.
+### **3. Export as PDF/Excel**
+- Invoices can be exported and saved as **PDF/Excel files** with a single click.
+- PDFs and Excel Files are named systematically using the invoice number and customer name.
 
 ### **4. Email Invoice as PDF**
 - Uses **VBA Macros** to automatically attach the generated PDF to an email.
