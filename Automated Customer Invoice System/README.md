@@ -35,7 +35,7 @@ This project is an **Automated Customer Invoice System** built in **Microsoft Ex
 
 - An **Invoice Record Sheet** logs all issued invoices, including amounts, dates, and customer details.
 
-<img width="1078" alt="Image" src="https://github.com/user-attachments/assets/30a001fd-6d31-4047-90a3-2369a9d4ea47" />
+<img width="1079" alt="Image" src="https://github.com/user-attachments/assets/60387809-7266-49e7-9720-0e0b1e80f629" />
 
 ## How It Works
 1. **Open the Excel file** containing the automated invoice system.
