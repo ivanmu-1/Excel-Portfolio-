@@ -2,10 +2,6 @@
 
 <img width="728" alt="Image" src="https://github.com/user-attachments/assets/e53b1ec8-c816-4984-90cb-cb3fc84b1083" />
 
-<img width="718" alt="Image" src="https://github.com/user-attachments/assets/1c13b8f2-400e-4eb2-97ed-4ce148a59e01" />
-
-<img width="1078" alt="Image" src="https://github.com/user-attachments/assets/30a001fd-6d31-4047-90a3-2369a9d4ea47" />
-
 ## Overview
 This project is an **Automated Customer Invoice System** built in **Microsoft Excel** using **VBA Macros**. It simplifies the process of creating, saving, and managing invoices with just a click of a button. The system automates multiple tasks, including:
 
@@ -34,7 +30,12 @@ This project is an **Automated Customer Invoice System** built in **Microsoft Ex
 
 ### **5. Customer and Invoice Records**
 - A **Customer Details Sheet** stores all customer information (e.g., Name, Contact, Email, Address, etc.).
+
+<img width="718" alt="Image" src="https://github.com/user-attachments/assets/1c13b8f2-400e-4eb2-97ed-4ce148a59e01" />
+
 - An **Invoice Record Sheet** logs all issued invoices, including amounts, dates, and customer details.
+
+<img width="1078" alt="Image" src="https://github.com/user-attachments/assets/30a001fd-6d31-4047-90a3-2369a9d4ea47" />
 
 ## How It Works
 1. **Open the Excel file** containing the automated invoice system.
