@@ -28,6 +28,8 @@ This project is an **Automated Customer Invoice System** built in **Microsoft Ex
 - Uses **VBA Macros** to automatically attach the generated PDF to an email.
 - Opens an email draft in **Outlook** with the invoice attached and a predefined subject & message.
 
+<img width="1447" alt="Image" src="https://github.com/user-attachments/assets/e5f083af-2b0e-43df-a5ec-231412abca69" />
+
 ### **5. Customer and Invoice Records**
 - A **Customer Details Sheet** stores all customer information (e.g., Name, Contact, Email, Address, etc.).
 
@@ -40,7 +42,7 @@ This project is an **Automated Customer Invoice System** built in **Microsoft Ex
 ### **6. File Saving Records**
 - A **A file-saving system** that stores invoices as either Excel or PDF files, using the designated name and invoice number. The system allows users to select a specific file path on their PC for saving invoices efficiently.
 
-insert image here
+<img width="803" alt="Image" src="https://github.com/user-attachments/assets/5ac20c7d-7bd2-410c-b923-f519137ce02e" />
 
 ## How It Works
 1. **Open the Excel file** containing the automated invoice system.
