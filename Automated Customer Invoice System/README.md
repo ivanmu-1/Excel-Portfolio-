@@ -37,6 +37,11 @@ This project is an **Automated Customer Invoice System** built in **Microsoft Ex
 
 <img width="1079" alt="Image" src="https://github.com/user-attachments/assets/60387809-7266-49e7-9720-0e0b1e80f629" />
 
+### **6. File Saving Records**
+- A **A file-saving system** that stores invoices as either Excel or PDF files, using the designated name and invoice number. The system allows users to select a specific file path on their PC for saving invoices efficiently.
+
+insert image here
+
 ## How It Works
 1. **Open the Excel file** containing the automated invoice system.
 2. **Use the buttons** to perform actions:
