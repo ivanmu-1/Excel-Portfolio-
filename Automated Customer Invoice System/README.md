@@ -5,13 +5,13 @@
 ## Overview
 This project is an **Automated Customer Invoice System** built in **Microsoft Excel** using **VBA Macros**. It simplifies the process of creating, saving, and managing invoices with just a click of a button. The system automates multiple tasks, including:
 
-[How I Built This - Automated Customer Invoice System](https://github.com/ivanmu-1/Excel-Portfolio-/blob/main/Automated%20Customer%20Invoice%20System/HOW_I_BUILT_THIS.md)
-
 - **Generating new invoices**
 - **Recording invoices** in a dedicated sheet
 - **Saving invoices** as an Excel file
 - **Exporting invoices** as a PDF
 - **Sending invoices via email** as a PDF attachment
+
+[How I Built This - Automated Customer Invoice System](https://github.com/ivanmu-1/Excel-Portfolio-/blob/main/Automated%20Customer%20Invoice%20System/HOW_I_BUILT_THIS.md)
 
 ## Features
 ### **1. Automated Invoice Creation**
