@@ -1,5 +1,5 @@
  <p align="center">
-  <img width="200" height="400" src="https://github.com/user-attachments/assets/56af937b-5feb-4237-9169-b1faa7deaac3">
+  <img width="400" height="400" src="https://github.com/user-attachments/assets/56af937b-5feb-4237-9169-b1faa7deaac3">
 </p>
 
 # Excel-Portfolio-
