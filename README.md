@@ -1,3 +1,6 @@
+
+![Image](https://github.com/user-attachments/assets/56af937b-5feb-4237-9169-b1faa7deaac3)
+
 # Excel-Portfolio-
 
 Welcome to my GitHub repository, where I showcase a variety of Excel projects and datasets that I have worked on. These projects demonstrate my skills in data analysis, automation, and advanced Excel techniques.
