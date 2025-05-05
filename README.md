@@ -6,7 +6,7 @@
 ## Introduction
 Welcome to my GitHub repository, where I showcase a variety of Excel projects and datasets that I have worked on. These projects demonstrate my skills in data analysis, automation, and advanced Excel techniques.
 
-## Repository Structure
+## Projects
 
 This repository is organized into several folders, each dedicated to a different project or dataset. Below is an overview of some of the key projects:
 
