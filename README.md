@@ -9,7 +9,10 @@ Welcome to my GitHub repository, where I showcase a variety of Excel projects an
 ## Projects
 
 ### **Automated Customer Invoice System**
+
+**Description:**
 This project automates the creation and storage of customer invoices as Excel or PDF files. It takes invoice data, formats it using a predefined template, and saves each invoice with a unique filename and invoice number. The system includes detailed documentation explaining its design and implementation
+
 - A project that automates the generation and saving of customer invoices as Excel or PDF files.
 - The system is designed to accept invoice data, format it according to the desired template, and save the invoice with a unique name and invoice number.
 - The project includes instructions on how it was built and can be found in the documentation.
@@ -18,5 +21,8 @@ This project automates the creation and storage of customer invoices as Excel or
 
 ## Skills & Tools Used 
 
-- 
+- Excel Automation – Writing and deploying VBA macros to automate repetitive tasks and workflows
+- Template Design & Formatting – Creating professional invoice templates with formulas, conditional formatting, and cell protection
+- Data Validation & Error Handling – Implementing dropdown lists, input controls, and automated checks to ensure data integrity
+- File Management via VBA – Automating file saving, opening, and versioning within Excel
 
